@@ -32,8 +32,8 @@ int get_digit_hunderth(int n)
 int
 main() 
 {
-    int num       = 562984;
-    int rotate_by = 2 ;
+    int num       = 27391;
+    int rotate_by = -4 ;
 
     // if rotate_by is positive then move num to left
     // if rotate_by is negative then move num to right
@@ -44,6 +44,9 @@ main()
     // + 5629
     int total_length = get_digit_hunderth(num);
     int updated_num = 0;
+    if (rotate_by < 0 ) {
+        rotate_by = rotate_by + 5;
+    }
     if (rotate_by >= 0) {  
         // wrong need loop!
         auto backup_num = num;
