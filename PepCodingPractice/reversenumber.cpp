@@ -14,7 +14,7 @@ int get_digit_hunderth(int n)
 
     }
 
-    return count;
+    return count/10;
 }
 
 int
