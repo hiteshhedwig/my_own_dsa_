@@ -30,8 +30,8 @@ main()
     int end   = 24;
 
     for (int i = start; i < end; i++) {
-            if (is_prime(i)) {
-                std::cout << "Prime : " << i << std::endl;
-            }
+        if (is_prime(i)) {
+            std::cout << "Prime : " << i << std::endl;
+        }
     }
 }
