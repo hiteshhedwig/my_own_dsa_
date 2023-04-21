@@ -28,12 +28,26 @@ int get_digit_hunderth(int n)
     return count/10;
 }
 
+int get_digit_count(int n) 
+{
+    int count=0;
+    while (n!= 0)
+    {
+        /* code */
+        count+=1;
+        n = n/10;
+
+    }
+
+    return count;
+}
+
 
 int
 main() 
 {
     int num       = 27391;
-    int rotate_by = -4 ;
+    int rotate_by = 350 ;
 
     // if rotate_by is positive then move num to left
     // if rotate_by is negative then move num to right
@@ -45,11 +59,19 @@ main()
     int total_length = get_digit_hunderth(num);
     int updated_num = 0;
     if (rotate_by < 0 ) {
-        rotate_by = rotate_by + 5;
+        rotate_by = rotate_by + get_digit_count(num);
     }
-    if (rotate_by >= 0) {  
+
+    std::cout << "digit count " << get_digit_count(num) << " " << rotate_by << " " << rotate_by % get_digit_count(num)  << std::endl; 
+
+    if (rotate_by >= get_digit_count(num)) {
+        rotate_by = rotate_by%get_digit_count(num) ;
+    } 
+
+    if (rotate_by > 0) {  
         // wrong need loop!
         auto backup_num = num;
+        // optimize it well todo
         for (int i=1; i <= rotate_by ; i++) {
             auto last_several_digits = num%10;
             updated_num = last_several_digits * total_length + (backup_num/10) ;
@@ -59,6 +81,8 @@ main()
             num /= 10;
             backup_num = updated_num;
         }
+    } else {
+        updated_num = num;
     }
 
     std::cout << "Result " << updated_num << std::endl;
