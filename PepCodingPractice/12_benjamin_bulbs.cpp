@@ -8,29 +8,25 @@ int
 main() 
 {
 
-    int N_bulbs=20;
-    int N_fluctuations = 20;
+    // puzzles will have simple solution but hard process
 
-    int bulb_state[N_bulbs];
+    // int N_bulbs=20;
+    int N_fluctuations = 100;
 
-    // set bulb state to off
-    for (int i=0; i<N_bulbs; i++){
-        bulb_state[i]= 0;
+    // assuming all bulbs are off
+
+    // improved method is pepcoding way 
+    // so the idea is ; 
+    // if a bulb is getting toggled by even number. They will remain OFF because ;  (first) ON - OFF - ON - OFF (last action)
+    // if a bulb is getting toggled by odd number. They will remain ON.
+    // now the point is, 
+    // so bulb number will be toggled odd depending upon factors it has. For example if bulb four is being toggled it will be toggled 3 times. because it 4 can have 3 factors (1,2,4)/
+    // these numbers will be perfect squares because they have 2n+1 factors
+    // we just need to find perfect squares till N_fluctuations 
+
+    for (int i=1; i*i<=N_fluctuations; i++) {
+        std::cout << "Toggled ON " << i*i << std::endl;
     }
-
-    // initially every bulb was off
-    for (int j=1; j<=N_fluctuations; j++) {
-        for (int i=1; i<=N_bulbs; i++) {
-            // change the multiple of j
-            if (i%j == 0) {
-                bulb_state[i-1]= !bulb_state[i-1];
-            }
-            if ((j == N_fluctuations) && (bulb_state[i-1] == 1)) {
-                std::cout << "bulb ON " << i << std::endl;
-            }
-        }   
-    }
-    
     
 
     return 0;
