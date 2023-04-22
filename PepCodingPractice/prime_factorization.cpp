@@ -25,22 +25,39 @@ main()
 
     // 1440
     // to find prime factorization, what i do is keep dividing it by lowest divisible number
-    int i = 2;
-    while (num!=1)
-    {
-        /* code */
-        if (is_prime(i)){
-            if (num%i==0){
-                std::cout << "prime factors are " << i  << " of " << num << std::endl;
-                num=num/i; 
-                continue;
-            } 
-        } 
-        i++;
-        // std::cout << "idx " << i << " " <<  num << std::endl;
-        // std::cout << "num " << num << std::endl;
+    // int i = 2;
+    // while (num!=1)
+    // {
+    //     /* code */
+    //     if (is_prime(i)){
+    //         if (num%i==0){
+    //             std::cout << "prime factors are " << i  << " of " << num << std::endl;
+    //             num=num/i; 
+    //             continue;
+    //         }
+    //     } 
+    //     i++;
+    //     // std::cout << "idx " << i << " " <<  num << std::endl;
+    //     // std::cout << "num " << num << std::endl;
+    // }
+
+    // pepcoding solution
+    for (int i=2; i*i<=num; i++) {
+        while (num%i==0)
+        {
+            /* code */
+            num/=i;
+            std::cout << "prime factors " << i << std::endl;
+        }
+
+        // std::cout << "i " << i << " num " << num << std::endl;
+        
     }
-    
+
+    if(num!=1){
+        // number itself a prime factor
+        std::cout << "prime factors " << num << std::endl;
+    }  
 
 
     return 0;
