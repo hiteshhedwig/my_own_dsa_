@@ -33,12 +33,10 @@ main()
             if (num%i==0){
                 std::cout << "prime factors are " << i  << " of " << num << std::endl;
                 num=num/i; 
-            } else {
-                i++;
-            }   
-        } else {
-            i++;
-        }
+                continue;
+            } 
+        } 
+        i++;
         // std::cout << "idx " << i << " " <<  num << std::endl;
         // std::cout << "num " << num << std::endl;
     }
