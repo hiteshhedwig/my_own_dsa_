@@ -17,8 +17,8 @@ main()
     //   *        
             
     for (int i = 0; i < stars; i++) {
-        for (int j = stars; j >= 0; j--) {
-            if (i == j) {
+        for (int j = 0; j < stars; j++) {
+            if (i+j == stars ) {
                 std::cout << "*" ;
             } else {
                 std::cout << "  ";
