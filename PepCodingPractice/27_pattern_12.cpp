@@ -3,7 +3,7 @@
 int 
 main() {
     int num = 4;
-    int count = 0;
+    // int count = 0;
 
     // 0
     // 1       1
@@ -14,17 +14,10 @@ main() {
 
     for (int i = 1; i <= num; i++) {
         for (int j = 1; j <= i; j++) {
-            if (i == 1 && j ==1) {
-                std::cout << count << "\t" ;
-            } else if (i == 2 && j == 1) {
-                std::cout << count + 1 << "\t" ;
-            } else {
-                count = one + two;
-                std::cout << count << "\t" ;
-                one = two;
-                two = count;
-            }
-            
+            int count = one + two;
+            std::cout << one << "\t";
+            one = two ;
+            two = count;
         }
         // count++;
         std::cout << std::endl;
