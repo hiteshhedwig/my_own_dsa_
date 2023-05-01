@@ -15,10 +15,12 @@ int
 main(){
 
     int a[5] = {1,2,3,4,5};
-    int start_idx = 0;
-    int end_idx   = 4;
 
-    for (int i = 0; i < 5; i++) {
+    unsigned int n = sizeof(a)/sizeof(a[0]);
+    int start_idx = 0;
+    int end_idx   = n-1;
+
+    for (int i = 0; i < n; i++) {
         std::cout << "original : " << a[i] << "\t";
     }
 
@@ -29,7 +31,7 @@ main(){
     std::cout << std::endl;
 
     
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < n; i++) {
         std::cout << "reversed : " << a[i] << "\t";
     }
 
