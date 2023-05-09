@@ -2,26 +2,45 @@
 #include <iostream>
 
 void move_zeros_(int *arr, int size_arr) {
-    int temp[size_arr] ;
 
-    // first method
-    // find zero and put it in temp and
-    // shift all num to left and zero to back
-    for (int i = 0; i < size_arr ; i++) {
-        int temp = arr[i];
-        std::cout << "found " << temp << std::endl;
-        if (temp == 0) {
-            for (int j = i; j < size_arr-1 ; j++) {
-                arr[j] = arr[j + 1];
-            }
-            
-            arr[size_arr-1] = temp;
-            // for (size_t k = 0; k < size_arr; k++) {
-            //     std::cout << arr[k] << " ";
-            // }
-            // std::cout << " \n shift " << std::endl;
+    // better way
+    // put non zero in the temp array and count how many zeroes are there, so that we have maintained order
+    // now another non nested loop to reinit the temp array into arr and reinit zero count after the loop ends
+    int count_zeros = 0;
+    for (int i = 0; i < size_arr; i++) {
+        if (arr[i] == 0) {
+            count_zeros++;
         }
     }
+
+    std::cout << "count_zeros: " << count_zeros << std::endl;
+
+    int temp[size_arr-count_zeros] ;
+
+    int j=0;
+    for (int i = 0; i < size_arr; i++) {
+        if (arr[i] != 0) {
+            temp[j] = arr[i];
+            std::cout << arr[i] << " with " << temp[j] << std::endl;
+            j++;
+        }
+    }
+
+    for (int k = 0; k < size_arr-count_zeros; k++) {
+        std::cout << temp[k] << " ";
+    }
+    std::cout << std::endl;
+
+    std::cout << "temp: " << size_arr-count_zeros << std::endl;
+
+    for (int i = 0; i < size_arr; i++) {
+        if (i < (size_arr-count_zeros)) {
+            arr[i] = temp[i];
+        } else {
+            arr[i] = 0;
+        }
+    }
+
 }
 
 int main() {
