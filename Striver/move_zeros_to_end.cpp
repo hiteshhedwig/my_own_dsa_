@@ -3,43 +3,31 @@
 
 void move_zeros_(int *arr, int size_arr) {
 
-    // better way
-    // put non zero in the temp array and count how many zeroes are there, so that we have maintained order
-    // now another non nested loop to reinit the temp array into arr and reinit zero count after the loop ends
-    int count_zeros = 0;
+    //
+    int j = 0;
+    
     for (int i = 0; i < size_arr; i++) {
         if (arr[i] == 0) {
-            count_zeros++;
+            j = i;
+            break;
         }
     }
 
-    std::cout << "count_zeros: " << count_zeros << std::endl;
-
-    int temp[size_arr-count_zeros] ;
-
-    int j=0;
-    for (int i = 0; i < size_arr; i++) {
+    for (int i = j+1; i < size_arr; i++)
+    {
         if (arr[i] != 0) {
-            temp[j] = arr[i];
-            std::cout << arr[i] << " with " << temp[j] << std::endl;
+            std::cout << "swap " << i << " " << j << std::endl;
+
+            std::swap(arr[i], arr[j]);
             j++;
+
+            for (size_t i = 0; i < size_arr; i++) {
+                std::cout << arr[i] << " ";
+            }
+            std::cout << std::endl;
         }
     }
-
-    for (int k = 0; k < size_arr-count_zeros; k++) {
-        std::cout << temp[k] << " ";
-    }
-    std::cout << std::endl;
-
-    std::cout << "temp: " << size_arr-count_zeros << std::endl;
-
-    for (int i = 0; i < size_arr; i++) {
-        if (i < (size_arr-count_zeros)) {
-            arr[i] = temp[i];
-        } else {
-            arr[i] = 0;
-        }
-    }
+    
 
 }
 
